@@ -28,4 +28,13 @@ public class PlayerController : MonoBehaviour {
 
         rb.AddForce(movement * speed);
     }
+    
+    // When Player GameObject hits the collider of Pick Up GameObject, disable the GameObject.
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Pick Up"))
+        {
+            other.gameObject.SetActive(false);
+        }
+    }
 }
